@@ -1,0 +1,20 @@
+<body style="margin: 0;display: flex;align-items: center;justify-content: center;text-align: center; flex-direction:column; font-size: .1vw;width: 100vw;min-height: 100vh;">
+	<h1 style="line-height: 0;display: flex; align-items: center; justify-content: center;">There’s&nbsp;nothing&nbsp;special&nbsp;about&nbsp;this&nbsp;webpage.&nbsp;It’s&nbsp;just&nbsp;really,&nbsp;really&nbsp;small.</h1>
+</body>
+<script>
+	let temp = "";
+	for (let i=0; i<document.querySelector("h1").innerText.length; i++) {
+		temp += `<span style="transition: .2s;">${document.querySelector("h1").innerText[i]}</span>`;
+	}
+	document.querySelector("h1").innerHTML = temp;
+	let spans = document.querySelectorAll("span");
+	let spanCount = 0;
+	setInterval(() => {
+		for (let i of spans) {
+			i.style.fontSize = "unset";
+		}
+		spans[spanCount].style.fontSize = "10vw";
+		spanCount++;
+		if (spanCount >= spans.length) {spanCount = 0};
+	}, 100)
+</script>

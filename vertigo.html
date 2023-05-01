@@ -1,0 +1,8 @@
+<body style="margin: 0;display: flex;align-items: center;justify-content: center;text-align: center; flex-direction:column; font-size: 3vw;width: 100vw;min-height: 100vh;">
+	<h1 style="transform:rotateY(80deg) rotateX(80deg);">I’m feeling all sorts of vertigo.</h1>
+</body>
+<script>
+	document.body.addEventListener("mousemove", (e) => {
+		document.querySelector("h1").style.transform = `rotateX(${(e.pageX/window.innerWidth)*180-90}deg) rotateY(${(e.pageY/window.innerHeight)*180-90}deg)`;
+	})
+</script>

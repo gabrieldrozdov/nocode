@@ -1,0 +1,10 @@
+<body style="margin: 0;display: flex;align-items: flex-start;justify-content: center;text-align: center; flex-direction:column; font-size: 2vw;min-width: 100vw;min-height: 100vh;">
+	<h1 style="transition: .5s; transform-origin: left;">Click me to stretch me pleeeeease.</h1>
+</body>
+<script>
+	let scale = 1;
+	document.querySelector("h1").addEventListener("click", () => {
+		scale ++;
+		document.querySelector("h1").style.transform = `scaleX(${scale})`;
+	})
+</script>

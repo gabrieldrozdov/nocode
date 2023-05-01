@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CODE LESS</title>
+	<meta name="description" content="Web experiments using 20 or fewer lines of code."/>
+	<meta name="keywords" content="HTML, CSS, JavaScript">
+	<meta name="author" content="Gabriel Drozdov">  
+	<link rel="stylesheet" href="style.css">
+	<link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+<body class="home">
+	<nav class="home-nav">
+		<div class="home-nav-heading">
+			<h1 class="home-nav-title">CODE&nbsp;LESS</h1>
+			<h2 class="home-nav-subtitle">
+				<span class="home-nav-tagline">How much code do you really need?</span>
+				<span class="home-nav-tagline">Do more with less!</span>
+				<span class="home-nav-tagline">Don’t be scared of code!</span>
+				<span class="home-nav-tagline">Make pretty pictures with code!</span>
+			</h2>
+		</div>
+		<div class="home-nav-controls">
+			<div class="home-nav-controls-section" id="sorting">
+				<h3 class="home-nav-controls-heading" onclick="toggleNav('sorting')">Sorting</h3>
+				<div class="home-nav-controls-list">
+					<div class="home-nav-controls-item" data-active="0" onclick="setSorting('least', this)">
+						<div class="home-nav-controls-toggle"><div class="home-nav-controls-toggle-fill"></div></div>
+						<p class="home-nav-controls-txt">Least lines of code</p>
+					</div>
+					<div class="home-nav-controls-item" data-active="0" onclick="setSorting('most', this)">
+						<div class="home-nav-controls-toggle"><div class="home-nav-controls-toggle-fill"></div></div>
+						<p class="home-nav-controls-txt">Most lines of code</p>
+					</div>
+					<div class="home-nav-controls-item" data-active="0" onclick="setSorting('az', this)">
+						<div class="home-nav-controls-toggle"><div class="home-nav-controls-toggle-fill"></div></div>
+						<p class="home-nav-controls-txt">A–Z</p>
+					</div>
+					<div class="home-nav-controls-item" data-active="0" onclick="setSorting('za', this)">
+						<div class="home-nav-controls-toggle"><div class="home-nav-controls-toggle-fill"></div></div>
+						<p class="home-nav-controls-txt">Z–A</p>
+					</div>
+					<div class="home-nav-controls-item" data-active="1" onclick="setSorting('random', this)">
+						<div class="home-nav-controls-toggle"><div class="home-nav-controls-toggle-fill"></div></div>
+						<p class="home-nav-controls-txt">Random (click to shuffle)</p>
+					</div>
+				</div>
+			</div>
+			<div class="home-nav-controls-section" id="filters">
+				<h3 class="home-nav-controls-heading" onclick="toggleNav('filters')">Filters</h3>
+				<div class="home-nav-controls-list">
+					<h4 class="home-nav-controls-category">Lines of Code</h4>
+					<div class="home-nav-controls-item" data-active="0" onclick="setFilters('10lines', this)">
+						<div class="home-nav-controls-check"><div class="home-nav-controls-check-fill"></div></div>
+						<p class="home-nav-controls-txt" style="color:var(--red)">10 or fewer lines of code</p>
+					</div>
+					<div class="home-nav-controls-item" data-active="0" onclick="setFilters('20lines', this)">
+						<div class="home-nav-controls-check"><div class="home-nav-controls-check-fill"></div></div>
+						<p class="home-nav-controls-txt" style="color:var(--blue)">11–20 lines of code</p>
+					</div>
+					<div class="home-nav-controls-item" data-active="0" onclick="setFilters('30lines', this)">
+						<div class="home-nav-controls-check"><div class="home-nav-controls-check-fill"></div></div>
+						<p class="home-nav-controls-txt"style="color:var(--purple)">21–30 lines of code</p>
+					</div>
+					<div class="home-nav-controls-item" data-active="0" onclick="setFilters('40lines', this)">
+						<div class="home-nav-controls-check"><div class="home-nav-controls-check-fill"></div></div>
+						<p class="home-nav-controls-txt"style="color:var(--yellow)">31–40 lines of code</p>
+					</div>
+					<div class="home-nav-controls-item" data-active="0" onclick="setFilters('50lines', this)">
+						<div class="home-nav-controls-check"><div class="home-nav-controls-check-fill"></div></div>
+						<p class="home-nav-controls-txt"style="color:var(--pink)">41–50 lines of code</p>
+					</div>
+					<div class="home-nav-controls-item" data-active="0" onclick="setFilters('50+lines', this)">
+						<div class="home-nav-controls-check"><div class="home-nav-controls-check-fill"></div></div>
+						<p class="home-nav-controls-txt"style="color:var(--green)">50 or more lines of code</p>
+					</div>
+
+					<br><h4 class="home-nav-controls-category">Programming Languages</h4>
+					<div class="home-nav-controls-item" data-active="0" onclick="setFilters('html', this)">
+						<div class="home-nav-controls-check"><div class="home-nav-controls-check-fill"></div></div>
+						<p class="home-nav-controls-txt">HTML</p>
+					</div>
+					<div class="home-nav-controls-item" data-active="0" onclick="setFilters('html+css', this)">
+						<div class="home-nav-controls-check"><div class="home-nav-controls-check-fill"></div></div>
+						<p class="home-nav-controls-txt">HTML+CSS</p>
+					</div>
+					<div class="home-nav-controls-item" data-active="0" onclick="setFilters('html+css+js', this)">
+						<div class="home-nav-controls-check"><div class="home-nav-controls-check-fill"></div></div>
+						<p class="home-nav-controls-txt">HTML+CSS+JS</p>
+					</div>
+
+					<br><h4 class="home-nav-controls-category">Types of Interaction</h4>
+					<div class="home-nav-controls-item" data-active="0" onclick="setFilters('mouse', this)">
+						<div class="home-nav-controls-check"><div class="home-nav-controls-check-fill"></div></div>
+						<p class="home-nav-controls-txt">Mouse</p>
+					</div>
+					<div class="home-nav-controls-item" data-active="0" onclick="setFilters('scroll', this)">
+						<div class="home-nav-controls-check"><div class="home-nav-controls-check-fill"></div></div>
+						<p class="home-nav-controls-txt">Scroll Wheel</p>
+					</div>
+					<div class="home-nav-controls-item" data-active="0" onclick="setFilters('keyboard', this)">
+						<div class="home-nav-controls-check"><div class="home-nav-controls-check-fill"></div></div>
+						<p class="home-nav-controls-txt">Keyboard</p>
+					</div>
+
+					<div class="home-nav-controls-clear" data-active="0" onclick="clearFilters()">Clear Filters</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<main class="home-grid">
+		<a class="home-grid-link" data-category="10lines" data-lines="6" data-name="laser-tag" data-tags="10lines,html+css+js" data-active="1" href="">
+			<p class="home-grid-link-category">6 LINES OF CODE</p>
+			<div class="home-grid-link-content">
+				<h3 class="home-grid-link-title">Laser Tag</h3>
+				<div class="home-grid-link-tags">
+					<p class="home-grid-link-tag">HTML</p>
+				</div>
+			</div>
+		</a>
+		<a class="home-grid-link" data-category="20lines" data-lines="15" data-name="pizza-party" data-tags="20lines,html+css+js" data-active="1" href="">
+			<p class="home-grid-link-category">15 LINES OF CODE</p>
+			<div class="home-grid-link-content">
+				<h3 class="home-grid-link-title">Pizza Party</h3>
+				<div class="home-grid-link-tags">
+					<p class="home-grid-link-tag">HTML+CSS+JS</p>
+				</div>
+			</div>
+		</a>
+		<a class="home-grid-link" data-category="30lines" data-lines="29" data-name="chess-sports" data-tags="30lines,html+css+js" data-active="1" href="">
+			<p class="home-grid-link-category">29 LINES OF CODE</p>
+			<div class="home-grid-link-content">
+				<h3 class="home-grid-link-title">Chess Sports</h3>
+				<div class="home-grid-link-tags">
+					<p class="home-grid-link-tag">HTML+CSS+JS</p>
+				</div>
+			</div>
+		</a>
+		<a class="home-grid-link" data-category="40lines" data-lines="31" data-name="woah-there-dude" data-tags="40lines,html+css+js" data-active="1" href="">
+			<p class="home-grid-link-category">31 LINES OF CODE</p>
+			<div class="home-grid-link-content">
+				<h3 class="home-grid-link-title">Woah there dude</h3>
+				<div class="home-grid-link-tags">
+					<p class="home-grid-link-tag">HTML+CSS+JS</p>
+				</div>
+			</div>
+		</a>
+		<a class="home-grid-link" data-category="50lines" data-lines="50" data-name="abcdefg" data-tags="50lines,html+css+js" data-active="1" href="">
+			<p class="home-grid-link-category">50 LINES OF CODE</p>
+			<div class="home-grid-link-content">
+				<h3 class="home-grid-link-title">ABDEFGH</h3>
+				<div class="home-grid-link-tags">
+					<p class="home-grid-link-tag">HTML+CSS+JS</p>
+				</div>
+			</div>
+		</a>
+		<a class="home-grid-link" data-category="50+lines" data-lines="60" data-name="bark" data-tags="50+lines,html+css+js" data-active="1" href="">
+			<p class="home-grid-link-category">60 LINES OF CODE</p>
+			<div class="home-grid-link-content">
+				<h3 class="home-grid-link-title">Bark</h3>
+				<div class="home-grid-link-tags">
+					<p class="home-grid-link-tag">HTML+CSS+JS</p>
+				</div>
+			</div>
+		</a>
+		<a class="home-grid-link" data-category="10lines" data-lines="10" data-name="i-just-wanna-ride-a-horse" data-tags="10lines,html+css+js" data-active="1" href="">
+			<p class="home-grid-link-category">10 LINES OF CODE</p>
+			<div class="home-grid-link-content">
+				<h3 class="home-grid-link-title">I Just Wanna Ride a Horse</h3>
+				<div class="home-grid-link-tags">
+					<p class="home-grid-link-tag">HTML</p>
+				</div>
+			</div>
+		</a>
+		<a class="home-grid-link" data-category="20lines" data-lines="22" data-name="omg" data-tags="20lines,html+css+js" data-active="1" href="">
+			<p class="home-grid-link-category">22 LINES OF CODE</p>
+			<div class="home-grid-link-content">
+				<h3 class="home-grid-link-title">OMG</h3>
+				<div class="home-grid-link-tags">
+					<p class="home-grid-link-tag">HTML+CSS+JS</p>
+				</div>
+			</div>
+		</a>
+		<a class="home-grid-link" data-category="40lines" data-lines="33" data-name="hey-you" data-tags="30lines,html+css+js" data-active="1" href="">
+			<p class="home-grid-link-category">33 LINES OF CODE</p>
+			<div class="home-grid-link-content">
+				<h3 class="home-grid-link-title">Hey you!</h3>
+				<div class="home-grid-link-tags">
+					<p class="home-grid-link-tag">HTML+CSS+JS</p>
+				</div>
+			</div>
+		</a>
+	</main>
+
+	<script src="script.js"></script>
+</body>
+</html>

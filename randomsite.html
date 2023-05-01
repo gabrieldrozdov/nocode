@@ -1,0 +1,15 @@
+<body style="margin: 0;display: flex;align-items: center;justify-content: center;text-align: center; width: 100vw; height: 100vh;">
+	<button id="button">Generate 10 random 3-letter websites</button>
+</body>
+<script>
+	document.querySelector("#button").addEventListener("click", () => {
+		for (let i=0; i<10; i++) {
+			let src = "";
+			let letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+			for (let j=0; j<3; j++) {
+				src += letters[Math.floor(Math.random()*letters.length)];
+			}
+			window.open("http://"+src+".com");
+		}
+	})
+</script>

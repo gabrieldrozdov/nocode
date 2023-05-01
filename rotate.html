@@ -1,0 +1,19 @@
+<style>
+	.rotate {
+		animation: rotation 10s linear 0s infinite;
+	}
+	@keyframes rotation {
+		from {transform:rotateY(0deg) rotateZ(0deg);}
+		to {transform:rotateY(360deg) rotateZ(360deg);}
+	}
+</style>
+<body style="margin: 0;display: flex;align-items: center;justify-content: center;text-align: center; flex-direction:column; font-size: 8vw;width: 100vw;min-height: 100vh;overflow: hidden;">
+	<div class="rotate" style="display:grid;grid-template-columns: 1fr 1fr 1fr;">
+		<p class="rotate" style="animation-duration: 4s;">hi there</p>
+		<p class="rotate" style="animation-duration: 3s;">hi there</p>
+		<p class="rotate" style="animation-duration: 2s;">hi there</p>
+		<p class="rotate" style="animation-duration: 1s;">hi there</p>
+		<p class="rotate" style="animation-duration: 2s;">hi there</p>
+		<p class="rotate" style="animation-duration: 1s;">hi there</p>
+	</div>
+</body>
